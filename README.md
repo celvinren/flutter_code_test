@@ -3,9 +3,10 @@
 Welcome to Maia Technology's technical test for prospective new Software Engineers.
 
 Please read the documents in the docs folder to understand:
-* the problem that needs to be solved,
-* an input file to be processed by your solution to the technical test,
-* and the specification for the input file's data format.
+
+* The problem that needs to be solved,
+* An input file that can be processed by your solution to the technical test,
+* Specification for the input file's data format.
 
 # What technologies can I use?
 
