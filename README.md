@@ -21,7 +21,7 @@ If you are applying for a full-stack Java developer position then please develop
 
 ## Mobile App Developer
 
-If you are applying for a mobile app developer position then please develop your solution using one of these choices:
+If you are applying for a mobile app developer position then please develop your solution using one of these choices:s
 
 * NativeScript Angular/Vue for either iOS/Android
 * Swift for iOS
