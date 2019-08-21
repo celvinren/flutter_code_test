@@ -37,5 +37,14 @@ The process goes something like:
 * Clone your private fork onto your personal computer,
 * Write your unit tests and code,
 * Create a file with instructions we can use to run your unit tests, build your app and execute your app.
-* Push your solution to BitBucket,
+* Commit and push your changes in the master branch to Bitbucket
+* Add permission to view your code
+	 # Go to settings 
+	 # User and group access 
+	 # Add skurlow@maiatechnology.com.au as owner 
 * Notify the relevant person that your solution is ready for review.
+
+# Notes to Maia Technology
+
+* To send the test for the user, you should have the Admin
+* After the test delete the fork repository
