@@ -34,7 +34,7 @@ If you are applying for a mobile app developer position then please develop your
 The process goes something like:
 
 * Create a private fork of our bitbucket repository,
-* Clone your private fork onto your personal computer. Please append your name to the end of the forked repo eg "dev_coding_test_stephen",
+* Clone your private fork onto your personal computer. Please add your name to the end of the forked repo eg "dev_coding_test_stephen",
 * Write your unit tests and code,
 * Create a file with instructions we can use to run your unit tests, build your app and execute your app.
 * Commit and push your changes in the master branch to Bitbucket
