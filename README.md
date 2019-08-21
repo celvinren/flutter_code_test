@@ -39,9 +39,9 @@ The process goes something like:
 * Create a file with instructions we can use to run your unit tests, build your app and execute your app.
 * Commit and push your changes in the master branch to Bitbucket
 * Add permission to view your code
-	 # Go to settings 
-	 # User and group access 
-	 # Add skurlow@maiatechnology.com.au as owner 
+	 * Go to settings 
+	 * User and group access 
+	 * Add skurlow@maiatechnology.com.au as owner 
 * Notify the relevant person that your solution is ready for review.
 
 # Notes to Maia Technology
