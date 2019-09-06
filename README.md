@@ -21,13 +21,13 @@ If you are applying for a full-stack Java developer position then please develop
 
 ## Mobile App Developer
 
-If you are applying for a mobile app developer position then please develop your solution using one of these choices:s
+If you are applying for a mobile app developer position then please develop your solution using one of these choices:
 
 * NativeScript Angular/Vue for either iOS/Android
-* Swift for iOS
-* Kotlin for Android
 * Flutter for iOS/Android
 * React Native for iOS/Android
+* Swift for iOS
+* Kotlin for Android
 
 # How do I submit my solution?
 
@@ -46,5 +46,4 @@ The process goes something like:
 
 # Notes to Maia Technology
 
-* To send the test for the user, you should have the Admin
-* After the test delete the fork repository
+* To send the test for a new applicant, you should have an Admin role assigned to the Bitbucket repo
