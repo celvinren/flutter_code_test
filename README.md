@@ -8,6 +8,10 @@ Please read the documents in the docs folder to understand:
 * An input file that can be processed by your solution to the technical test,
 * Specification for the input file's data format.
 
+# What is important to us?
+
+We look for evidence of Domain Driven Design (DDD). As an example see https://www.youtube.com/watch?v=uwJRrJ2Hwqg
+
 # What technologies can I use?
 
 This depends on whether you are applying for a full-stack Java developer or mobile app developer position.
@@ -18,6 +22,13 @@ If you are applying for a full-stack Java developer position then please develop
 
 * Java 8 or higher
 * Maven
+
+There is a bonus if you can demonstrate your front-end HTML/CSS/Typescript skills.
+You can give it a simple web page that shows the answer to the problem using your choice of framework such as:
+
+* VueJS
+* AngularJS
+* React
 
 ## Mobile App Developer
 
