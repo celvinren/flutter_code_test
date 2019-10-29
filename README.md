@@ -10,11 +10,22 @@ Please read the documents in the docs folder to understand:
 
 # What is important to us?
 
-We look for evidence of Domain Driven Design (DDD). As an example see https://www.youtube.com/watch?v=uwJRrJ2Hwqg
+We look for evidence of Domain Driven Design (DDD), clean code, layered software design. As an example see https://www.youtube.com/watch?v=uwJRrJ2Hwqg
 
 # What technologies can I use?
 
-This depends on whether you are applying for a full-stack Java developer or mobile app developer position.
+This depends on whether you are applying for a front-end JavaScript developer, full-stack Java developer or mobile app developer position.
+
+## Front-End JavaScript Developer
+
+If you are applying for a front-end Javascript developer position then please develop your solution using:
+
+* VueJS, AngularJS or React preferably using Typescript
+* npm
+
+Please use the opportunity to not only solve the problem which can involve simply reading the input file from inside the browser, but also show off your styling, CSS skills.
+No need to build a UI that accepts a file uploaded from a computer's local filesystem.
+Can you visually show the problem's answer on the screen with a little creative flair - attractive aesthetics? Inspiration perhaps at https://www.awwwards.com/websites/clean/
 
 ## Full-Stack Java Developer
 
