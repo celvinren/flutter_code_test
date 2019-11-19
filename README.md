@@ -23,9 +23,17 @@ If you are applying for a front-end Javascript developer position then please de
 * VueJS, AngularJS or React preferably using Typescript
 * npm
 
-Please use the opportunity to not only solve the problem which can involve simply reading the input file from inside the browser, but also show off your styling, CSS skills.
-No need to build a UI that accepts a file uploaded from a computer's local filesystem.
+Please use the opportunity to:
+
+* Not only solve the problem which can involve simply reading the input file from inside the browser (no need for a back-end REST API),
+* Show off your UI Design, CSS skills. We are looking for wow factor skills in terms of great UX and UI Design.
+* No need to build a UI that accepts a file uploaded from a computer's local filesystem.
+
 Can you visually show the problem's answer on the screen with a little creative flair - attractive aesthetics? Inspiration perhaps at https://www.awwwards.com/websites/clean/
+Some more inspiration in terms of great UX design concerns:
+
+* https://youtu.be/aZZCZpc0AcY?list=PLrcfK6BQWuGDQClYCr9Uhw9hPYae1kTgp
+* https://youtu.be/LmXVxkWjLT8?list=PLrcfK6BQWuGDQClYCr9Uhw9hPYae1kTgp
 
 ## Full-Stack Java Developer
 
