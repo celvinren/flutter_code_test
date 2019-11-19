@@ -30,6 +30,7 @@ Please use the opportunity to:
 * No need to build a UI that accepts a file uploaded from a computer's local filesystem.
 
 Can you visually show the problem's answer on the screen with a little creative flair - attractive aesthetics? Inspiration perhaps at https://www.awwwards.com/websites/clean/
+
 Some more inspiration in terms of great UX design concerns:
 
 * https://youtu.be/aZZCZpc0AcY?list=PLrcfK6BQWuGDQClYCr9Uhw9hPYae1kTgp
