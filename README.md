@@ -14,7 +14,7 @@ The process goes something like:
 * Add permission to view your code
 	 * Go to settings 
 	 * User and group access 
-	 * Add skurlow@maiatechnology.com.au as Admin 
+	 * Add ptaylor@maiatechnology.com.au as Admin 
 * Notify the relevant person that your solution is ready for review.
 
 # Which test do I need to complete?
