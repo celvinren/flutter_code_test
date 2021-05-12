@@ -1,9 +1,10 @@
-System A has produced the file Input.txt, which is a Fixed Width text file that contains the Future Transactions done by client 1234
+System A has produced the file Input.txt, which is a Fixed Width text file that contains the Future Transactions 
 
 ## Requirements:
 
 * The Business user would like to see the TOTAL Transaction Amount of each UNIQUE product they have done for the DAY
 * The Business user would like a program that can read in the Input file and generate a daily summary report
+* The Business user would like to see transactions for Client Number 1234
 * The Daily summary report should be:
   1. Displayed on a (web/mobile) page in tabular form
   2. For the full-stack role, expose the data through an API which is then consumed by a front-end page

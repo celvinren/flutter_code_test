@@ -21,11 +21,9 @@ Please read the documents in the docs folder to understand:
 
 # What we'll look for 
 
-Treat the exercise as a conversation starter that we'll use to talk about different software engineering concepts. 
+In line with good agile practices, start with a small slice of functionality that can run properly and can be delivered to a hypothetical user. Add on functionality as you go.
 
-In line with good agile practices, start with a small slice of functionality that can run properly and can be delivered. Add on functionality as you go.
-
-We don't expect candidates to spend more than a couple hours working on the exercise. Help us understand your thought process with comments, clear abstractions, tests, and code.
+Help us understand your thought process with comments, tests, and clear abstractions and code. If necessary, include a text file with assumptions and notes when any requirements are unclear. Treat the exercise as a conversation starter that could be used to explore different software engineering concepts.
 
 Other nice things we're looking for: 
 * Domain Driven Design
@@ -66,8 +64,6 @@ Consume the API on a simple web page that shows the answer to the problem using 
 
 If you are applying for a mobile app developer position then please develop your solution using one of these choices:
 
-* NativeScript Angular/Vue for either iOS/Android
 * Flutter for iOS/Android
-* React Native for iOS/Android
-* Swift for iOS
-* Kotlin for Android
+* Swift/Objective C for iOS
+* Kotlin/Java for Android
