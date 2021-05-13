@@ -29,6 +29,7 @@ Other nice things we're looking for:
 * Domain Driven Design
 * Clean code
 * Layered software design
+* Using the right data structure and/or algorithm for the right job
 
 # What technologies can I use?
 
