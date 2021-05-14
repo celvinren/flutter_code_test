@@ -28,7 +28,7 @@ Help us understand your thought process with comments, tests, and clear abstract
 Other nice things we're looking for: 
 * Domain Driven Design
 * Clean code
-* Layered software design
+* Layered software design / separation of responsibilities
 * Using the right data structure and/or algorithm for the right job
 
 # What technologies can I use?
