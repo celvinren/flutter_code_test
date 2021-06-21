@@ -14,7 +14,7 @@ Please read the documents in the docs folder to understand:
 * Write your unit tests and code
 * Create a file with instructions on how to run your unit tests, build, and execute your app.
 * Commit and push your changes to bitbucket
-* Give ptaylor@maiatechnology.com.au permission to view the repo
+* Give prichardson@maiatechnology.com.au permission to view the repo
 * Notify the relevant person that your solution is ready to review, including the
 	* the links to your repo and/or repl.it environment 
 	* along with access and other instructions
