@@ -1,5 +1,4 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
-import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -63,7 +62,7 @@ class HorizontalTable extends StatelessWidget {
 
   Widget _getTitleItemWidget(String label, double width) {
     return Container(
-      child: Text(label, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+      child: Text(label, style: TextStyle(fontWeight: FontWeight.bold)),
       width: width,
       height: 56.h,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -73,7 +72,7 @@ class HorizontalTable extends StatelessWidget {
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
-      child: Text(index.toString()),
+      child: Text((index + 1).toString()),
       width: 50.w,
       height: 52.h,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
