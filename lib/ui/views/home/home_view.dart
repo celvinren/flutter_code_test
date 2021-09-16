@@ -18,8 +18,11 @@ class HomeView extends StatelessWidget {
       ) {
         return Scaffold(
           body: Center(
-            child: Text(
-              'HomeView',
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: () => model.pushToSearchByClientNumberPage(context), child: Text("Search Client Number")),
+              ],
             ),
           ),
         );
