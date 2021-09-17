@@ -21,6 +21,8 @@ class HomeView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                ElevatedButton(
+                    onPressed: () => model.pushToTotalAmountByProductAndDayPage(context), child: Text("Total amount by product and day")),
                 ElevatedButton(onPressed: () => model.pushToSearchByClientNumberPage(context), child: Text("Search Client Number")),
               ],
             ),

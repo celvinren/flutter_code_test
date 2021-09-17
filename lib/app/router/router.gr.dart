@@ -10,6 +10,8 @@ import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_b
     as _i5;
 import 'package:dev_coding_test_calvin/ui/views/startup/startup_view.dart'
     as _i3;
+import 'package:dev_coding_test_calvin/ui/views/total_amount_by_product_and_day/total_amount_by_product_and_day_view.dart'
+    as _i6;
 import 'package:flutter/material.dart' as _i2;
 
 class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
@@ -32,7 +34,13 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i5.SearchByClientNumberView();
-        })
+        }),
+    TotalAmountByProductAndDayRoute.name: (routeData) =>
+        _i1.AdaptivePage<dynamic>(
+            routeData: routeData,
+            builder: (_) {
+              return _i6.TotalAmountByProductAndDayView();
+            })
   };
 
   @override
@@ -40,7 +48,9 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(StartupRoute.name, path: '/'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-view'),
         _i1.RouteConfig(SearchByClientNumberRoute.name,
-            path: '/search-by-client-number-view')
+            path: '/search-by-client-number-view'),
+        _i1.RouteConfig(TotalAmountByProductAndDayRoute.name,
+            path: '/total-amount-by-product-and-day-view')
       ];
 }
 
@@ -61,4 +71,11 @@ class SearchByClientNumberRoute extends _i1.PageRouteInfo {
       : super(name, path: '/search-by-client-number-view');
 
   static const String name = 'SearchByClientNumberRoute';
+}
+
+class TotalAmountByProductAndDayRoute extends _i1.PageRouteInfo {
+  const TotalAmountByProductAndDayRoute()
+      : super(name, path: '/total-amount-by-product-and-day-view');
+
+  static const String name = 'TotalAmountByProductAndDayRoute';
 }
