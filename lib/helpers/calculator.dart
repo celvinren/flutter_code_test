@@ -4,14 +4,25 @@ import 'package:dev_coding_test_calvin/app/models/transaction.dart';
 import 'package:collection/collection.dart';
 
 groupTotalTransactionGroupByProductAndDay(List<Transaction> transactionList) {
+  ///The final map should be
+  ///{
+  ///   2010-08-10:{
+  ///     FG:20154896,
+  ///     TR:8954125
+  ///   }
+  ///}
+  ///
+  //group by datetime, datetime as the key of the map
   var groupByTransationDate = groupBy(transactionList, (obj) => (obj as Transaction).transactionDate);
 
+  //group by products group code, product group code as the key
   var groupByTransationDateAndProduct = {};
   groupByTransationDate.keys.forEach((element) {
     groupByTransationDateAndProduct[element!] =
         groupBy(groupByTransationDate[element] as List<Transaction>, (obj) => (obj as Transaction).productGroupCode);
   });
 
+  //calculate the sum number for the product
   var totalsGroupByTransationDateAndProduct = {};
   groupByTransationDateAndProduct.keys.forEach((e) {
     totalsGroupByTransationDateAndProduct[e] = {};
