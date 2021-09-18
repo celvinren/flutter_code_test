@@ -70,6 +70,7 @@ class Transaction {
       this.oppositeTraderID,
       this.openCloseCode});
 
+  static String clientNumberStr = "clientNumber";
   static String exchangeCodeStr = "exchangeCode";
   static String productGroupCodeStr = "productGroupCode";
   static String symbolStr = "symbol";

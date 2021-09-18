@@ -74,10 +74,10 @@ class BuildTransactionList extends HookViewModelWidget<SearchByClientNumberViewM
     List<Transaction> searchResultList = useValueListenable(viewModel.getSearchResultList);
 
     List<CellInfo> titleList = [
-      CellInfo("Client Number", 150, filterName: "clientNumber"),
-      CellInfo("Product Group", 150, filterName: "productGroupCode"),
-      CellInfo("Transaction Date", 150, filterName: "transactionDate"),
-      CellInfo("Transaction Price", 140, filterName: "transactionPrice"),
+      CellInfo("Client Number", 150, filterName: Transaction.clientNumberStr),
+      CellInfo("Product Group", 150, filterName: Transaction.productGroupCodeStr),
+      CellInfo("Transaction Date", 150, filterName: Transaction.transactionDateStr),
+      CellInfo("Transaction Price", 140, filterName: Transaction.transactionPriceStr),
     ];
 
     return Column(
