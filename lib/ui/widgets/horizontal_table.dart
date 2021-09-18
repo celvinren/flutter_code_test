@@ -1,19 +1,23 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HorizontalTable extends StatelessWidget {
   final List<Transaction> searchResultList;
   final HDTRefreshController hdtRefreshController;
-  HorizontalTable(this.searchResultList, this.hdtRefreshController);
+  final List<CellInfo> titleList;
+  HorizontalTable(this.searchResultList, this.hdtRefreshController, this.titleList);
 
   @override
   Widget build(BuildContext context) {
+    double tableWidth = 0;
+    titleList.forEach((e) {
+      tableWidth = tableWidth + e.cellWidth;
+    });
     return HorizontalDataTable(
       leftHandSideColumnWidth: 50.w,
-      rightHandSideColumnWidth: 600.w,
+      rightHandSideColumnWidth: tableWidth.w,
       isFixedHeader: true,
       headerWidgets: _getTitleWidget(),
       leftSideItemBuilder: _generateFirstColumnRow,
@@ -51,72 +55,42 @@ class HorizontalTable extends StatelessWidget {
   }
 
   List<Widget> _getTitleWidget() {
-    return [
-      _getTitleItemWidget('index', 50.w),
-      _getTitleItemWidget('Client Number', 150.w),
-      _getTitleItemWidget('Product Group', 150.w),
-      _getTitleItemWidget('Transaction Date', 150.w),
-      _getTitleItemWidget('Transaction Price', 350.w),
-    ];
+    return List.generate(titleList.length, (i) => _getCellItemWidget(titleList[i].value, titleList[i].cellWidth.w, true))
+      ..insert(0, _getCellItemWidget("index", 50.w, true));
   }
 
-  Widget _getTitleItemWidget(String label, double width) {
+  Widget _getCellItemWidget(String label, double width, bool isTitle, {int? index}) {
     return Container(
-      child: Text(label, style: TextStyle(fontWeight: FontWeight.bold)),
+      child: Text(label, style: TextStyle(fontWeight: isTitle ? FontWeight.bold : FontWeight.normal)),
       width: width,
-      height: 56.h,
+      height: isTitle ? 56.h : 52.h,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.center,
+      color: isTitle ? Colors.white : (index! % 2 == 0 ? Colors.grey : Colors.white),
     );
   }
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
-    return Container(
-      child: Text((index + 1).toString()),
-      width: 50.w,
-      height: 52.h,
-      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-      alignment: Alignment.centerLeft,
-      color: index % 2 == 0 ? Colors.grey : Colors.white,
-    );
+    return _getCellItemWidget((index + 1).toString(), 50.w, false, index: index);
   }
 
   Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
     return Row(
-      children: <Widget>[
-        Container(
-          child: Text(searchResultList[index].clientNumber ?? ""),
-          width: 150.w,
-          height: 52.h,
-          padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-          alignment: Alignment.centerLeft,
-          color: index % 2 == 0 ? Colors.grey : Colors.white,
-        ),
-        Container(
-          child: Text(searchResultList[index].productGroupCode ?? ""),
-          width: 150.w,
-          height: 52.h,
-          padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-          alignment: Alignment.centerLeft,
-          color: index % 2 == 0 ? Colors.grey : Colors.white,
-        ),
-        Container(
-          child: Text(DateFormat("yyyy-MM-d").format(searchResultList[index].transactionDate!)),
-          width: 150.w,
-          height: 52.h,
-          padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-          alignment: Alignment.centerLeft,
-          color: index % 2 == 0 ? Colors.grey : Colors.white,
-        ),
-        Container(
-          child: Text(searchResultList[index].transactionPrice!),
-          width: 150.w,
-          height: 52.h,
-          padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-          alignment: Alignment.centerLeft,
-          color: index % 2 == 0 ? Colors.grey : Colors.white,
-        ),
-      ],
+      children: List.generate(
+          titleList.length,
+          (i) => _getCellItemWidget(searchResultList[index].toJson()[titleList[i].filterName].toString(), titleList[i].cellWidth.w, false,
+              index: index)),
     );
   }
+}
+
+class CellInfo {
+  final String value;
+  final String? filterName;
+  final double cellWidth;
+  CellInfo(
+    this.value,
+    this.cellWidth, {
+    this.filterName,
+  });
 }
