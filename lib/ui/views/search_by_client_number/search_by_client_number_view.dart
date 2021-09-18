@@ -72,13 +72,24 @@ class BuildTransactionList extends HookViewModelWidget<SearchByClientNumberViewM
   @override
   Widget buildViewModelWidget(BuildContext context, SearchByClientNumberViewModel viewModel) {
     List<Transaction> searchResultList = useValueListenable(viewModel.getSearchResultList);
+
+    List<CellInfo> titleList = [
+      CellInfo("Client Number", 150, filterName: "clientNumber"),
+      CellInfo("Product Group", 150, filterName: "productGroupCode"),
+      CellInfo("Transaction Date", 150, filterName: "transactionDate"),
+      CellInfo("Transaction Price", 140, filterName: "transactionPrice"),
+    ];
+
     return Column(
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 15.h),
           child: Text("Total Result: ${searchResultList.length}"),
         ),
-        Expanded(flex: 8, child: HorizontalTable(searchResultList, viewModel.hdtRefreshController)),
+        Expanded(
+          flex: 8,
+          child: HorizontalTable(searchResultList, viewModel.hdtRefreshController, titleList),
+        ),
       ],
     );
   }
