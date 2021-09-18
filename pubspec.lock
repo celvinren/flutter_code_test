@@ -156,7 +156,7 @@ packages:
     source: hosted
     version: "4.1.0"
   collection:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: collection
       url: "https://pub.dartlang.org"
@@ -628,6 +628,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.13"
+  sticky_headers:
+    dependency: "direct dev"
+    description:
+      name: sticky_headers
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   stream_channel:
     dependency: transitive
     description:

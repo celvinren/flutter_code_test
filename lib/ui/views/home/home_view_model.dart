@@ -9,4 +9,8 @@ class HomeViewModel extends CustomBaseViewModel {
   pushToSearchByClientNumberPage(BuildContext context) {
     AutoRouter.of(context).push(SearchByClientNumberRoute());
   }
+
+  pushToTotalAmountByProductAndDayPage(BuildContext context) {
+    AutoRouter.of(context).push(TotalAmountByProductAndDayRoute());
+  }
 }

@@ -88,7 +88,7 @@ class BuildTransactionList extends HookViewModelWidget<SearchByClientNumberViewM
         ),
         Expanded(
           flex: 8,
-          child: HorizontalTable(searchResultList, viewModel.hdtRefreshController, titleList),
+          child: HorizontalTable(searchResultList, titleList),
         ),
       ],
     );
