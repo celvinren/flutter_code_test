@@ -70,6 +70,12 @@ class Transaction {
       this.oppositeTraderID,
       this.openCloseCode});
 
+  static String exchangeCodeStr = "exchangeCode";
+  static String productGroupCodeStr = "productGroupCode";
+  static String symbolStr = "symbol";
+  static String transactionDateStr = "transactionDate";
+  static String transactionPriceStr = "transactionPrice";
+
   Transaction.fromString(String record) {
     recordCode = int.parse(record.substring(0, 3));
     clientType = record.substring(3, 7) == "    " ? null : record.substring(3, 7);

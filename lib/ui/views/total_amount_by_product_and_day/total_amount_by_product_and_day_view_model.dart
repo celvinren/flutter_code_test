@@ -19,6 +19,6 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
   }
 
   groupTotalTransaction() {
-    _totalResultMap.value = groupTotalTransactionGroupByProductAndDay(_transactionList.value);
+    _totalResultMap.value = groupTotalTransactionGroupByProductAndDay(_transactionList.value, Transaction.productGroupCodeStr);
   }
 }

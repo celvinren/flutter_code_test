@@ -5,9 +5,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HorizontalTable extends StatelessWidget {
   final List<Transaction> searchResultList;
-  final HDTRefreshController hdtRefreshController;
+  // final HDTRefreshController hdtRefreshController;
   final List<CellInfo> titleList;
-  HorizontalTable(this.searchResultList, this.hdtRefreshController, this.titleList);
+  HorizontalTable(this.searchResultList, this.titleList);
+  final HDTRefreshController hdtRefreshController = HDTRefreshController();
+  final ScrollController verticalScrollController = ScrollController();
+  final ScrollController horizontalScrollController = ScrollController();
+
+  final double titleHeight = 56;
+  final double cellHeight = 52;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +21,11 @@ class HorizontalTable extends StatelessWidget {
     titleList.forEach((e) {
       tableWidth = tableWidth + e.cellWidth;
     });
+    double tableHeight = titleHeight + cellHeight * searchResultList.length;
     return HorizontalDataTable(
       leftHandSideColumnWidth: 50.w,
       rightHandSideColumnWidth: tableWidth.w,
+      tableHeight: tableHeight,
       isFixedHeader: true,
       headerWidgets: _getTitleWidget(),
       leftSideItemBuilder: _generateFirstColumnRow,
@@ -51,6 +59,8 @@ class HorizontalTable extends StatelessWidget {
         hdtRefreshController.refreshCompleted();
       },
       htdRefreshController: hdtRefreshController,
+      verticalScrollController: verticalScrollController,
+      horizontalScrollController: horizontalScrollController,
     );
   }
 
@@ -63,7 +73,7 @@ class HorizontalTable extends StatelessWidget {
     return Container(
       child: Text(label, style: TextStyle(fontWeight: isTitle ? FontWeight.bold : FontWeight.normal)),
       width: width,
-      height: isTitle ? 56.h : 52.h,
+      height: isTitle ? titleHeight.h : cellHeight.h,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
       alignment: Alignment.center,
       color: isTitle ? Colors.white : (index! % 2 == 0 ? Colors.grey : Colors.white),
