@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dev_coding_test_calvin/ui/views/daily_summary_report/daily_summary_report_view.dart';
 
 import 'package:dev_coding_test_calvin/ui/views/home/home_view.dart';
 import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view.dart';
@@ -14,6 +15,7 @@ export './router.gr.dart';
     AdaptiveRoute(page: HomeView),
     AdaptiveRoute(page: SearchByClientNumberView),
     AdaptiveRoute(page: TotalAmountByProductAndDayView),
+    AdaptiveRoute(page: DailySummaryReportView),
   ],
 )
 class $DevCodingTestCalvinRouter {}

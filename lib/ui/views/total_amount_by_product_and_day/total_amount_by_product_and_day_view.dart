@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_hooks/stacked_hooks.dart';
-import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:horizontal_data_table/horizontal_data_table.dart';
 
 import './total_amount_by_product_and_day_view_model.dart';
 
@@ -55,7 +53,7 @@ class BuildTotalAmountByProductAndDayTable extends HookViewModelWidget<TotalAmou
           ..productGroupCode = keyList[0]
           ..exchangeCode = keyList[1]
           ..symbol = keyList[2]
-          ..transactionPrice = (currencyFormat.format(value)).toString());
+          ..transactionPrice = (currencyFormat.currencySymbol + " " + currencyFormat.format(value)).toString());
       });
       var table = HorizontalTable(resultList, titleList);
       headerList.add(

@@ -1,4 +1,5 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
+import 'package:dev_coding_test_calvin/helpers/formater.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,7 @@ class HorizontalTable extends StatelessWidget {
     return HorizontalDataTable(
       leftHandSideColumnWidth: 50.w,
       rightHandSideColumnWidth: tableWidth.w,
-      tableHeight: tableHeight,
+      tableHeight: tableHeight.h,
       isFixedHeader: true,
       headerWidgets: _getTitleWidget(),
       leftSideItemBuilder: _generateFirstColumnRow,
@@ -88,7 +89,12 @@ class HorizontalTable extends StatelessWidget {
     return Row(
       children: List.generate(
           titleList.length,
-          (i) => _getCellItemWidget(searchResultList[index].toJson()[titleList[i].filterName].toString(), titleList[i].cellWidth.w, false,
+          (i) => _getCellItemWidget(
+              searchResultList[index].toJson()[titleList[i].filterName] is DateTime
+                  ? datetimeFormat.format(searchResultList[index].toJson()[titleList[i].filterName])
+                  : searchResultList[index].toJson()[titleList[i].filterName].toString(),
+              titleList[i].cellWidth.w,
+              false,
               index: index)),
     );
   }

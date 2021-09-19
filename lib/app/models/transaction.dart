@@ -70,9 +70,17 @@ class Transaction {
       this.oppositeTraderID,
       this.openCloseCode});
 
+  static String clientTypeStr = "clientType";
+  static String clientNumberStr = "clientNumber";
+  static String accountNumberStr = "accountNumber";
+  static String subAccountNumberStr = "subAccountNumber";
   static String exchangeCodeStr = "exchangeCode";
   static String productGroupCodeStr = "productGroupCode";
   static String symbolStr = "symbol";
+  static String expirationDateStr = "expirationDate";
+  static String buySellCodeStr = "buySellCode";
+  static String quantityLongStr = "quantityLong";
+  static String quantityShortStr = "quantityShort";
   static String transactionDateStr = "transactionDate";
   static String transactionPriceStr = "transactionPrice";
 
