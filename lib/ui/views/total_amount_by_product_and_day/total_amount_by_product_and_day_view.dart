@@ -19,9 +19,6 @@ class TotalAmountByProductAndDayView extends StatelessWidget {
         Widget? child,
       ) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text("Total Amount for product and day"),
-          ),
           body: BuildTotalAmountByProductAndDayTable(),
         );
       },

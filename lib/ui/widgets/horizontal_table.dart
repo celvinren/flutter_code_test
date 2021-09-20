@@ -1,10 +1,9 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
-import 'package:dev_coding_test_calvin/helpers/formater.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HorizontalTable extends StatelessWidget {
+abstract class HorizontalTable extends StatelessWidget {
   final List<Transaction>? searchResultList;
   final List<CellInfo> titleList;
   final int? itemCount;
@@ -41,7 +40,7 @@ class HorizontalTable extends StatelessWidget {
       isFixedHeader: isShowHeader ? true : false,
       headerWidgets: _getTitleWidget(),
       leftSideItemBuilder: _generateFirstColumnRow,
-      rightSideItemBuilder: _generateRightHandSideColumnRow,
+      rightSideItemBuilder: generateRightHandSideColumnRow,
       itemCount: itemCount != null ? itemCount! : (searchResultList != null ? searchResultList!.length : 0),
       rowSeparatorWidget: const Divider(
         color: Colors.black54,
@@ -96,35 +95,7 @@ class HorizontalTable extends StatelessWidget {
     return HorizontalTable.getCellItemWidget((index + 1).toString(), 50.w, false, index: index);
   }
 
-  Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
-    return Row(
-      children: List.generate(
-          titleList.length,
-          (i) => HorizontalTable.getCellItemWidget(
-              searchResultList != null
-                  ? (searchResultList![index].toJson()[titleList[i].filterName] is DateTime
-                      ? datetimeFormat.format(searchResultList![index].toJson()[titleList[i].filterName])
-                      : searchResultList![index].toJson()[titleList[i].filterName].toString())
-                  : "",
-              titleList[i].cellWidth.w,
-              false,
-              index: index)),
-    );
-  }
-}
-
-class HorizontalTableWithGroup extends HorizontalTable {
-  final List<Widget> rowList;
-  HorizontalTableWithGroup({
-    required this.rowList,
-    required int itemCount,
-    required double tableHeight,
-    required List<CellInfo> titleList,
-  }) : super(itemCount: itemCount, titleList: titleList, tableHeight: tableHeight, isShowHeader: false, isShowIndexColumn: false);
-
-  Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
-    return rowList[index];
-  }
+  Widget generateRightHandSideColumnRow(BuildContext context, int index);
 }
 
 class CellInfo {

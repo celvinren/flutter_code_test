@@ -1,3 +1,6 @@
+import 'package:dev_coding_test_calvin/ui/views/daily_summary_report/daily_summary_report_view.dart';
+import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view.dart';
+import 'package:dev_coding_test_calvin/ui/views/total_amount_by_product_and_day/total_amount_by_product_and_day_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,15 +19,26 @@ class HomeView extends StatelessWidget {
         HomeViewModel model,
         Widget? child,
       ) {
-        return Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+        return DefaultTabController(
+          length: 3,
+          child: Scaffold(
+            appBar: AppBar(
+              bottom: TabBar(
+                tabs: [
+                  Tab(
+                    text: "Total per product",
+                  ),
+                  Tab(text: "Daily Report"),
+                  Tab(text: "Search client"),
+                ],
+              ),
+              title: Text('Demo'),
+            ),
+            body: TabBarView(
               children: [
-                ElevatedButton(
-                    onPressed: () => model.pushToTotalAmountByProductAndDayPage(context), child: Text("Total amount by product and day")),
-                ElevatedButton(onPressed: () => model.pushToSearchByClientNumberPage(context), child: Text("Search Client Number")),
-                ElevatedButton(onPressed: () => model.pushToDailySummaryReportPage(context), child: Text("DailySummaryReport")),
+                TotalAmountByProductAndDayView(),
+                DailySummaryReportView(),
+                SearchByClientNumberView(),
               ],
             ),
           ),

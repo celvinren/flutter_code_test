@@ -1,5 +1,5 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
-import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table.dart';
+import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table_normal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
@@ -23,14 +23,11 @@ class SearchByClientNumberView extends StatelessWidget {
       ) {
         return SafeArea(
           child: Scaffold(
-            appBar: AppBar(
-              title: Text("Search Client Number"),
-            ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
-              child: Column(
-                children: [
-                  Form(
+            body: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
+                  child: Form(
                     key: model.clientNumberFormKey,
                     child: Row(
                       children: [
@@ -57,9 +54,9 @@ class SearchByClientNumberView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(flex: 8, child: BuildTransactionList()),
-                ],
-              ),
+                ),
+                Expanded(flex: 8, child: BuildTransactionList()),
+              ],
             ),
           ),
         );
@@ -73,13 +70,6 @@ class BuildTransactionList extends HookViewModelWidget<SearchByClientNumberViewM
   Widget buildViewModelWidget(BuildContext context, SearchByClientNumberViewModel viewModel) {
     List<Transaction> searchResultList = useValueListenable(viewModel.getSearchResultList);
 
-    List<CellInfo> titleList = [
-      CellInfo("Client Number", 150, filterName: Transaction.clientNumberStr),
-      CellInfo("Product Group", 150, filterName: Transaction.productGroupCodeStr),
-      CellInfo("Transaction Date", 150, filterName: Transaction.transactionDateStr),
-      CellInfo("Transaction Price", 140, filterName: Transaction.transactionPriceStr),
-    ];
-
     return Column(
       children: [
         Padding(
@@ -88,7 +78,7 @@ class BuildTransactionList extends HookViewModelWidget<SearchByClientNumberViewM
         ),
         Expanded(
           flex: 8,
-          child: HorizontalTable(searchResultList: searchResultList, titleList: titleList),
+          child: HorizontalTableNormal(searchResultList: searchResultList, titleList: viewModel.titleList),
         ),
       ],
     );
