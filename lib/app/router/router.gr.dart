@@ -6,14 +6,12 @@
 
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:dev_coding_test_calvin/ui/views/daily_summary_report/daily_summary_report_view.dart'
-    as _i7;
-import 'package:dev_coding_test_calvin/ui/views/home/home_view.dart' as _i4;
-import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view.dart'
-    as _i5;
-import 'package:dev_coding_test_calvin/ui/views/startup/startup_view.dart'
-    as _i3;
-import 'package:dev_coding_test_calvin/ui/views/total_amount_by_product_and_day/total_amount_by_product_and_day_view.dart'
     as _i6;
+import 'package:dev_coding_test_calvin/ui/views/home/home_view.dart' as _i3;
+import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view.dart'
+    as _i4;
+import 'package:dev_coding_test_calvin/ui/views/total_amount_by_product_and_day/total_amount_by_product_and_day_view.dart'
+    as _i5;
 import 'package:flutter/material.dart' as _i2;
 
 class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
@@ -22,38 +20,32 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    StartupRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return _i3.StartupView();
-        }),
     HomeRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i4.HomeView();
+          return _i3.HomeView();
         }),
     SearchByClientNumberRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i5.SearchByClientNumberView();
+          return _i4.SearchByClientNumberView();
         }),
     TotalAmountByProductAndDayRoute.name: (routeData) =>
         _i1.AdaptivePage<dynamic>(
             routeData: routeData,
             builder: (_) {
-              return _i6.TotalAmountByProductAndDayView();
+              return _i5.TotalAmountByProductAndDayView();
             }),
     DailySummaryReportRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i7.DailySummaryReportView();
+          return _i6.DailySummaryReportView();
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(StartupRoute.name, path: '/'),
-        _i1.RouteConfig(HomeRoute.name, path: '/home-view'),
+        _i1.RouteConfig(HomeRoute.name, path: '/'),
         _i1.RouteConfig(SearchByClientNumberRoute.name,
             path: '/search-by-client-number-view'),
         _i1.RouteConfig(TotalAmountByProductAndDayRoute.name,
@@ -63,14 +55,8 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
       ];
 }
 
-class StartupRoute extends _i1.PageRouteInfo {
-  const StartupRoute() : super(name, path: '/');
-
-  static const String name = 'StartupRoute';
-}
-
 class HomeRoute extends _i1.PageRouteInfo {
-  const HomeRoute() : super(name, path: '/home-view');
+  const HomeRoute() : super(name, path: '/');
 
   static const String name = 'HomeRoute';
 }
