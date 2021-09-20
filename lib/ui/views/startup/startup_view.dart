@@ -27,8 +27,6 @@ class _StartupViewState extends State<StartupView> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                // TODO(yazeed): Put Your Logo Here :)
-
                 const SizedBox(height: 15),
                 CircularProgressIndicator(),
               ],

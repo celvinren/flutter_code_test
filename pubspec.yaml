@@ -11,6 +11,9 @@ dependencies:
   
   # state management
   stacked: ^2.1.7
+  stacked_services: ^0.8.6
+  stacked_hooks: ^0.2.0
+  flutter_hooks: 
 
   # navigation
   auto_route: ^2.2.0
@@ -34,12 +37,19 @@ dev_dependencies:
 
   # linting
   flutter_lints: ^1.0.0
+
+  flutter_screenutil: ^5.0.0+2
+  horizontal_data_table: ^3.4.2
+  easy_localization: ^3.0.0
+  collection: ^1.15.0
+  sticky_headers: ^0.2.0
   
 flutter:
   uses-material-design: true
 
 # Assets Example
-#  assets:
+  assets:
+    - assets/Input.txt
 #    - assets/images/
 #
 # Fonts Example
