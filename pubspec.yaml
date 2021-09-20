@@ -43,6 +43,7 @@ dev_dependencies:
   easy_localization: ^3.0.0
   collection: ^1.15.0
   sticky_headers: ^0.2.0
+  dropdown_search: ^1.0.0
   
 flutter:
   uses-material-design: true

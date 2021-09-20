@@ -24,6 +24,7 @@ class HomeView extends StatelessWidget {
                 ElevatedButton(
                     onPressed: () => model.pushToTotalAmountByProductAndDayPage(context), child: Text("Total amount by product and day")),
                 ElevatedButton(onPressed: () => model.pushToSearchByClientNumberPage(context), child: Text("Search Client Number")),
+                ElevatedButton(onPressed: () => model.pushToDailySummaryReportPage(context), child: Text("DailySummaryReport")),
               ],
             ),
           ),

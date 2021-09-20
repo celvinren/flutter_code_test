@@ -5,6 +5,8 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:dev_coding_test_calvin/ui/views/daily_summary_report/daily_summary_report_view.dart'
+    as _i7;
 import 'package:dev_coding_test_calvin/ui/views/home/home_view.dart' as _i4;
 import 'package:dev_coding_test_calvin/ui/views/search_by_client_number/search_by_client_number_view.dart'
     as _i5;
@@ -40,7 +42,12 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
             routeData: routeData,
             builder: (_) {
               return _i6.TotalAmountByProductAndDayView();
-            })
+            }),
+    DailySummaryReportRoute.name: (routeData) => _i1.AdaptivePage<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i7.DailySummaryReportView();
+        })
   };
 
   @override
@@ -50,7 +57,9 @@ class DevCodingTestCalvinRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SearchByClientNumberRoute.name,
             path: '/search-by-client-number-view'),
         _i1.RouteConfig(TotalAmountByProductAndDayRoute.name,
-            path: '/total-amount-by-product-and-day-view')
+            path: '/total-amount-by-product-and-day-view'),
+        _i1.RouteConfig(DailySummaryReportRoute.name,
+            path: '/daily-summary-report-view')
       ];
 }
 
@@ -78,4 +87,11 @@ class TotalAmountByProductAndDayRoute extends _i1.PageRouteInfo {
       : super(name, path: '/total-amount-by-product-and-day-view');
 
   static const String name = 'TotalAmountByProductAndDayRoute';
+}
+
+class DailySummaryReportRoute extends _i1.PageRouteInfo {
+  const DailySummaryReportRoute()
+      : super(name, path: '/daily-summary-report-view');
+
+  static const String name = 'DailySummaryReportRoute';
 }

@@ -1,4 +1,5 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
+import 'package:dev_coding_test_calvin/helpers/formater.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -100,7 +101,11 @@ class HorizontalTable extends StatelessWidget {
       children: List.generate(
           titleList.length,
           (i) => HorizontalTable.getCellItemWidget(
-              searchResultList != null ? searchResultList![index].toJson()[titleList[i].filterName].toString() : "",
+              searchResultList != null
+                  ? (searchResultList![index].toJson()[titleList[i].filterName] is DateTime
+                      ? datetimeFormat.format(searchResultList![index].toJson()[titleList[i].filterName])
+                      : searchResultList![index].toJson()[titleList[i].filterName].toString())
+                  : "",
               titleList[i].cellWidth.w,
               false,
               index: index)),
