@@ -18,8 +18,20 @@ groupTotalTransactionGroupByProductAndDay(List<Transaction> transactionList, Str
   //group by products group code, product group code as the key
   Map groupByTransationDateAndProduct = {};
   groupByTransationDate.keys.forEach((element) {
-    groupByTransationDateAndProduct[element] = groupBy(groupByTransationDate[element] as List<Transaction>,
-        (obj) => ((obj as Transaction).productGroupCode ?? "Null") + "+" + (obj.exchangeCode ?? "Null") + "+" + (obj.symbol ?? "Null"));
+    Map map = {};
+    map[element] = groupBy(
+        groupByTransationDate[element] as List<Transaction>,
+        (obj) =>
+            ((obj as Transaction).productGroupCode ?? "Null") +
+            "+" +
+            (obj.exchangeCode ?? "Null") +
+            "+" +
+            (obj.symbol ?? "Null") +
+            "+" +
+            (obj.buySellCode ?? "Null"));
+    //sort map by dateTime key
+    var sortedKeys = map[element].keys.toList(growable: false)..sort((k1, k2) => (k2 as String).compareTo(k1 as String));
+    groupByTransationDateAndProduct[element] = LinkedHashMap.fromIterable(sortedKeys, key: (k) => k, value: (k) => map[element][k]);
   });
 
   //calculate the sum number for the product
