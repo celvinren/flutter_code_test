@@ -74,8 +74,7 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
         String buyOrSale = keyList[keyList.length - 1] == "B" ? "Buy" : "Sale";
         keyList.removeAt(keyList.length - 1);
         keyList.add(buyOrSale);
-        keyList.add(currencyFormat.format(value));
-        print(currencyFormat.format(value));
+        keyList.add(currencyFormat.currencySymbol + " " + currencyFormat.format(value));
         rowList.add(
           Row(
             children: List.generate(
