@@ -1,5 +1,5 @@
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
-import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table.dart';
+import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table_normal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
@@ -22,9 +22,6 @@ class DailySummaryReportView extends StatelessWidget {
         Widget? child,
       ) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text("Daily Summary Report"),
-          ),
           body: Center(
             child: Column(
               children: [
@@ -57,7 +54,7 @@ class BuildDailySummaryReportTable extends HookViewModelWidget<DailySummaryRepor
   @override
   Widget buildViewModelWidget(BuildContext context, viewModel) {
     List<Transaction> resultList = useValueListenable(viewModel.getDisplayResultList);
-    var table = HorizontalTable(searchResultList: resultList, titleList: viewModel.titleList);
+    var table = HorizontalTableNormal(searchResultList: resultList, titleList: viewModel.titleList);
     return table;
   }
 }

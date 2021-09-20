@@ -5,6 +5,7 @@ import 'package:dev_coding_test_calvin/app/services/file_reader_service.dart';
 import 'package:dev_coding_test_calvin/helpers/calculator.dart';
 import 'package:dev_coding_test_calvin/helpers/formater.dart';
 import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table.dart';
+import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table_by_group.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

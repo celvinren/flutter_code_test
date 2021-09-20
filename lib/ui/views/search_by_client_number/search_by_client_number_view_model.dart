@@ -3,6 +3,7 @@ import 'package:dev_coding_test_calvin/app/locator/locator.dart';
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
 import 'package:dev_coding_test_calvin/app/services/file_reader_service.dart';
 import 'package:dev_coding_test_calvin/helpers/validator.dart';
+import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:horizontal_data_table/horizontal_data_table.dart';
@@ -23,6 +24,12 @@ class SearchByClientNumberViewModel extends CustomBaseViewModel {
     _searchResultList.value = List.from(_transactionList.value);
   }
 
+  List<CellInfo> titleList = [
+    CellInfo("Client Number", 150, filterName: Transaction.clientNumberStr),
+    CellInfo("Product Group", 150, filterName: Transaction.productGroupCodeStr),
+    CellInfo("Transaction Date", 150, filterName: Transaction.transactionDateStr),
+    CellInfo("Transaction Price", 140, filterName: Transaction.transactionPriceStr),
+  ];
   searchClientNumber(BuildContext context) {
     FocusScope.of(context).unfocus();
     if (clientNumberFormKey.currentState!.validate()) {
