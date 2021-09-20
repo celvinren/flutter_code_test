@@ -73,6 +73,7 @@ class Transaction {
   static String exchangeCodeStr = "exchangeCode";
   static String productGroupCodeStr = "productGroupCode";
   static String symbolStr = "symbol";
+  static String buySellCodeStr = "buySellCode";
   static String transactionDateStr = "transactionDate";
   static String transactionPriceStr = "transactionPrice";
 

@@ -4,16 +4,25 @@ import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HorizontalTable extends StatelessWidget {
-  final List<Transaction> searchResultList;
-  // final HDTRefreshController hdtRefreshController;
+  final List<Transaction>? searchResultList;
   final List<CellInfo> titleList;
-  HorizontalTable(this.searchResultList, this.titleList);
+  final int? itemCount;
+  final double? tableHeight;
+  final bool isShowHeader;
+  final bool isShowIndexColumn;
+  HorizontalTable(
+      {this.searchResultList,
+      this.itemCount,
+      this.tableHeight,
+      this.isShowHeader = true,
+      this.isShowIndexColumn = true,
+      required this.titleList});
   final HDTRefreshController hdtRefreshController = HDTRefreshController();
   final ScrollController verticalScrollController = ScrollController();
   final ScrollController horizontalScrollController = ScrollController();
 
-  final double titleHeight = 56;
-  final double cellHeight = 52;
+  static double titleHeight = 56;
+  static double cellHeight = 52;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +30,18 @@ class HorizontalTable extends StatelessWidget {
     titleList.forEach((e) {
       tableWidth = tableWidth + e.cellWidth;
     });
-    double tableHeight = titleHeight + cellHeight * searchResultList.length;
+    double? tableHeight = this.tableHeight != null
+        ? this.tableHeight
+        : (titleHeight + cellHeight * (searchResultList != null ? searchResultList!.length : 0));
     return HorizontalDataTable(
-      leftHandSideColumnWidth: 50.w,
+      leftHandSideColumnWidth: isShowHeader ? 50.w : 0,
       rightHandSideColumnWidth: tableWidth.w,
       tableHeight: tableHeight,
-      isFixedHeader: true,
+      isFixedHeader: isShowHeader ? true : false,
       headerWidgets: _getTitleWidget(),
       leftSideItemBuilder: _generateFirstColumnRow,
       rightSideItemBuilder: _generateRightHandSideColumnRow,
-      itemCount: searchResultList.length,
+      itemCount: itemCount != null ? itemCount! : (searchResultList != null ? searchResultList!.length : 0),
       rowSeparatorWidget: const Divider(
         color: Colors.black54,
         height: 1.0,
@@ -65,32 +76,49 @@ class HorizontalTable extends StatelessWidget {
   }
 
   List<Widget> _getTitleWidget() {
-    return List.generate(titleList.length, (i) => _getCellItemWidget(titleList[i].value, titleList[i].cellWidth.w, true))
-      ..insert(0, _getCellItemWidget("index", 50.w, true));
+    return List.generate(titleList.length, (i) => HorizontalTable.getCellItemWidget(titleList[i].value, titleList[i].cellWidth.w, true))
+      ..insert(0, HorizontalTable.getCellItemWidget("index", 50.w, true));
   }
 
-  Widget _getCellItemWidget(String label, double width, bool isTitle, {int? index}) {
+  static Widget getCellItemWidget(String label, double width, bool isTitle, {int? index}) {
     return Container(
       child: Text(label, style: TextStyle(fontWeight: isTitle ? FontWeight.bold : FontWeight.normal)),
       width: width,
       height: isTitle ? titleHeight.h : cellHeight.h,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
       alignment: Alignment.center,
-      color: isTitle ? Colors.white : (index! % 2 == 0 ? Colors.grey : Colors.white),
+      color: isTitle ? Colors.white : (index != null ? (index % 2 == 0 ? Colors.grey : Colors.white) : Colors.white),
     );
   }
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
-    return _getCellItemWidget((index + 1).toString(), 50.w, false, index: index);
+    return HorizontalTable.getCellItemWidget((index + 1).toString(), 50.w, false, index: index);
   }
 
   Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
     return Row(
       children: List.generate(
           titleList.length,
-          (i) => _getCellItemWidget(searchResultList[index].toJson()[titleList[i].filterName].toString(), titleList[i].cellWidth.w, false,
+          (i) => HorizontalTable.getCellItemWidget(
+              searchResultList != null ? searchResultList![index].toJson()[titleList[i].filterName].toString() : "",
+              titleList[i].cellWidth.w,
+              false,
               index: index)),
     );
+  }
+}
+
+class HorizontalTableWithGroup extends HorizontalTable {
+  final List<Widget> rowList;
+  HorizontalTableWithGroup({
+    required this.rowList,
+    required int itemCount,
+    required double tableHeight,
+    required List<CellInfo> titleList,
+  }) : super(itemCount: itemCount, titleList: titleList, tableHeight: tableHeight, isShowHeader: false, isShowIndexColumn: false);
+
+  Widget _generateRightHandSideColumnRow(BuildContext context, int index) {
+    return rowList[index];
   }
 }
 
