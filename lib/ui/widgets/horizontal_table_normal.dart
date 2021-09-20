@@ -18,7 +18,11 @@ class HorizontalTableNormal extends HorizontalTable {
               searchResultList != null
                   ? (searchResultList![index].toJson()[titleList[i].filterName] is DateTime
                       ? datetimeFormat.format(searchResultList![index].toJson()[titleList[i].filterName])
-                      : searchResultList![index].toJson()[titleList[i].filterName].toString())
+                      : (titleList[i].filterName == "transactionPrice"
+                          ? currencyFormat.currencySymbol +
+                              " " +
+                              currencyFormat.format(double.parse(searchResultList![index].toJson()[titleList[i].filterName]) / 10000000)
+                          : searchResultList![index].toJson()[titleList[i].filterName].toString()))
                   : "",
               titleList[i].cellWidth.w,
               false,

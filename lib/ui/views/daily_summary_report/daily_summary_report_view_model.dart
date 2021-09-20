@@ -78,8 +78,7 @@ class DailySummaryReportViewModel extends CustomBaseViewModel {
         ..expirationDate = value.expirationDate
         ..transactionDate = value.transactionDate
         ..quantityLong = (double.parse(value.quantityLong!) - double.parse(value.quantityShort!)).toString()
-        ..transactionPrice =
-            (currencyFormat.currencySymbol + " " + currencyFormat.format(double.parse(value.transactionPrice!))).toString());
+        ..transactionPrice = (double.parse(value.transactionPrice!) * 10000000).toString());
     });
     _displayResultList.value = resultList;
   }
