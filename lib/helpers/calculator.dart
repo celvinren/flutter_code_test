@@ -30,7 +30,7 @@ groupTotalTransactionGroupByProductAndDay(List<Transaction> transactionList, Str
             (obj.symbol ?? "Null") +
             "+" +
             (obj.buySellCode ?? "Null"));
-    //sort map by dateTime key
+    //sort map by product
     var sortedKeys = map[element].keys.toList(growable: false)..sort((k1, k2) => (k2 as String).compareTo(k1 as String));
     groupByTransationDateAndProduct[element] = LinkedHashMap.fromIterable(sortedKeys, key: (k) => k, value: (k) => map[element][k]);
   });

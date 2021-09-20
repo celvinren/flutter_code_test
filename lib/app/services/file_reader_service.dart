@@ -11,6 +11,7 @@ class FileReaderService {
 
   Future<FileReaderService> init() async {
     FileReaderService fileReaderService = FileReaderService();
+    //load date from the input file
     var s = await rootBundle.loadString('assets/Input.txt');
     var sList = s.split("\n");
     sList.forEach((e) {

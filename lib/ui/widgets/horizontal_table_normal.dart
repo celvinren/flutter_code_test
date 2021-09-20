@@ -11,6 +11,8 @@ class HorizontalTableNormal extends HorizontalTable {
   }) : super(searchResultList: searchResultList, titleList: titleList);
 
   Widget generateRightHandSideColumnRow(BuildContext context, int index) {
+    //If the value type is datetime then formate as "2010-01-01"
+    //if the attribute name call transactionPrice, then format with symbol "$ x,xxx.xx"
     return Row(
       children: List.generate(
           titleList.length,

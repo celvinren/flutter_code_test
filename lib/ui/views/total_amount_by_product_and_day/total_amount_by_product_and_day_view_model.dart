@@ -43,8 +43,10 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
       itemCount = itemCount + (value as Map).length + 2;
     });
 
+    //generate all rows
     List<Widget> rowList = [];
     _totalResultMap.forEach((key, value) {
+      //generate datetime header
       rowList.add(
         Container(
           height: HorizontalTable.cellHeight,
@@ -60,6 +62,8 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
           ),
         ),
       );
+
+      //generate table header
       rowList.add(Row(
         children: List.generate(
             titleList.length,
@@ -69,6 +73,8 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
                   false,
                 )),
       ));
+
+      //generate all data rows
       value.forEach((key, value) {
         List<String> keyList = (key as String).split("+");
         String buyOrSale = keyList[keyList.length - 1] == "B" ? "Buy" : "Sale";
@@ -89,6 +95,8 @@ class TotalAmountByProductAndDayViewModel extends CustomBaseViewModel {
         );
       });
     });
+
+    //attach data into table
     _table.value = HorizontalTableWithGroup(
       rowList: rowList,
       titleList: titleList,

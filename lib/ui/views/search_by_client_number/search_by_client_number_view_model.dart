@@ -30,12 +30,15 @@ class SearchByClientNumberViewModel extends CustomBaseViewModel {
     CellInfo("Transaction Date", 150, filterName: Transaction.transactionDateStr),
     CellInfo("Transaction Price", 140, filterName: Transaction.transactionPriceStr),
   ];
+
+  //trigger when click on search button
   searchClientNumber(BuildContext context) {
     FocusScope.of(context).unfocus();
     if (clientNumberFormKey.currentState!.validate()) {
       if (textFieldController.text.length != 0) {
         _searchResultList.value = _transactionList.value.where((e) => e.clientNumber == textFieldController.text).toList();
       } else {
+        //if the search bar is empty then load all the records
         _searchResultList.value = List.from(_transactionList.value);
       }
     }
@@ -55,6 +58,7 @@ class SearchByClientNumberViewModel extends CustomBaseViewModel {
   }
 
   cleanAction(BuildContext context) {
+    //trigger when click on clean button
     textFieldController.clear();
     FocusScope.of(context).unfocus();
     _searchResultList.value = List.from(_transactionList.value);

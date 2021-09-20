@@ -3,7 +3,6 @@ import 'package:dev_coding_test_calvin/app/locator/locator.dart';
 import 'package:dev_coding_test_calvin/app/models/transaction.dart';
 import 'package:dev_coding_test_calvin/app/services/file_reader_service.dart';
 import 'package:dev_coding_test_calvin/helpers/calculator.dart';
-import 'package:dev_coding_test_calvin/helpers/formater.dart';
 import 'package:dev_coding_test_calvin/ui/widgets/horizontal_table.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -55,11 +54,13 @@ class DailySummaryReportViewModel extends CustomBaseViewModel {
     _totalResultMap.value = groupTotalTransactionGroupByClientsAndProductAndDay(_transactionList.value, Transaction.productGroupCodeStr);
   }
 
+  //trigger when user select a datetime from the drop down list
   setSelectedDateTime(String selectedDateTime) {
     _selectedDateTime.value = selectedDateTime;
     setDisplayResultList(selectedDateTime);
   }
 
+  //Once the selected datetime changed, this will trigger and render the table again
   setDisplayResultList(String selectedDateTime) {
     List<Transaction> resultList = [];
     List<String> keyList = _totalResultMap.value.keys.where((e) => e.contains(_selectedDateTime.value)).toList();
