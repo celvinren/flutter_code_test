@@ -10,7 +10,7 @@ class DevCodingTestCalvinApp extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: Size(414, 896),
-      builder: () => MaterialApp.router(
+      builder: (context, child) => MaterialApp.router(
         title: "DevCodingTestCalvin",
         routeInformationParser: _routerService.router.defaultRouteParser(),
         routerDelegate: _routerService.router.delegate(),
